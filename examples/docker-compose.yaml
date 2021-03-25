@@ -1,0 +1,14 @@
+version: '3'
+
+volumes:
+    wintercms
+
+services:
+    wintercms:
+        image: wintercms:php7.4
+        environment:
+            APP_DEBUG: 1
+        volumes:
+            - 'wintercms:/var/www/html'
+            - './storage/database.sqlite:/var/www/html/storage/database.sqlite'
+
