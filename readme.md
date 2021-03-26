@@ -92,4 +92,4 @@ Most of the configuration can be set using environment variables, although for m
 
 ## Credits
 
-Some ideas were borrowed from [aspendigital/docker-octobercms](https://github.com/aspendigital/docker-octobercms). Their images work greate for October.
+Some ideas were borrowed from [aspendigital/docker-octobercms](https://github.com/aspendigital/docker-octobercms). Their images work great for October.
