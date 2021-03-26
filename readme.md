@@ -2,7 +2,7 @@
 
 **These docker build files are still a work in progress!**
 
-Here are some Dockerfiles for [Winter CMS](https://github.com/winter/wintercms).
+Here are some Dockerfiles for [Winter CMS](https://github.com/wintercms/winter).
 
 ## Building Images
 
