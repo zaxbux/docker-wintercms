@@ -9,7 +9,7 @@ Here are some Dockerfiles for [Winter CMS](https://github.com/wintercms/winter).
 The quickest way to build an image is with the following commands:
 
 * PHP 7.4 + FPM: `make build-fpm`
-* PHP 7.4 + FPM + ALPINE: `make build-fpm-alpine`
+* PHP 7.4 + FPM + Alpine: `make build-fpm-alpine`
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ By default, when the container starts, `artisan winter:up` is executed to comple
 
 ### A note about Alpine Linux
 
-Be aware that the default UID/GID for the *www-data* user in alpine is 82 (whereas it is 33 under debian). If you're mounting host directories, you may need to `chmod 82:82` them first.
+Be aware that the default UID/GID for the *www-data* user in alpine is 82 (whereas it is 33 under debian). If you're mounting host directories, you may need to `chown 82:82` them first.
 
 ## Configuration
 
