@@ -1,6 +1,8 @@
 # Docker for Winter CMS
 
-These docker build files are still a work in progress.
+**These docker build files are still a work in progress!**
+
+Here are some Dockerfiles for [Winter CMS](https://github.com/winter/wintercms).
 
 ## Building Images
 
@@ -56,14 +58,14 @@ Most of the configuration can be set using environment variables, although for m
 | cms.enableCsrfProtection                | `CMS_CSRF_PROTECTION`
 | database.default                        | `DB_CONNECTION`
 | database.sqlite.database                | `SQLITE_PATH`
-| database.(mysql|pgsql).host             | `DB_HOST`
-| database.(mysql|pgsql).port             | `DB_PORT`
-| database.(mysql|pgsql).database         | `DB_DATABASE`
-| database.(mysql|pgsql).username         | `DB_USERNAME`
-| database.(mysql|pgsql).password         | `DB_PASSOWRD`
-| database.redis.(default|cache).host     | `REDIS_HOST`
-| database.redis.(default|cache).port     | `REDIS_PORT`
-| database.redis.(default|cache).password | `REDIS_PASSWORD`
+| database.(mysql\|pgsql).host             | `DB_HOST`
+| database.(mysql\|pgsql).port             | `DB_PORT`
+| database.(mysql\|pgsql).database         | `DB_DATABASE`
+| database.(mysql\|pgsql).username         | `DB_USERNAME`
+| database.(mysql\|pgsql).password         | `DB_PASSOWRD`
+| database.redis.(default\|cache).host     | `REDIS_HOST`
+| database.redis.(default\|cache).port     | `REDIS_PORT`
+| database.redis.(default\|cache).password | `REDIS_PASSWORD`
 | database.redis.default.database         | `REDIS_DB`
 | database.redis.cache.database           | `REDIS_CACHE_DB`
 | mail.driver                             | `MAIL_DRIVER`
