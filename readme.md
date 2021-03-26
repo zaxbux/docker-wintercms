@@ -2,7 +2,14 @@
 
 These docker build files are still a work in progress.
 
-## Setup
+## Building Images
+
+The quickest way to build an image is with the following commands:
+
+* PHP 7.4 + FPM: `make build-fpm`
+* PHP 7.4 + FPM + ALPINE: `make build-fpm-alpine`
+
+## Getting Started
 
 By default, when the container starts, `artisan winter:up` is executed to complete migrations.
 
@@ -12,6 +19,75 @@ By default, when the container starts, `artisan winter:up` is executed to comple
 
 Be aware that the default UID/GID for the *www-data* user in alpine is 82 (whereas it is 33 under debian). If you're mounting host directories, you may need to `chmod 82:82` them first.
 
+## Configuration
+
+Most of the configuration can be set using environment variables, although for more advanced configurations you can mount your config directory to `/var/www/html/config/docker`. Each config option and it's defaults are documented in the [config/wintercms](config/wintercms) directory.
+
+| Configuration Option                    | Envionment Variable
+| --------------------------------------- | -------------------
+| app.debug                               | `APP_DEBUG`
+| environment.default                     | `APP_ENV`
+| app.name                                | `APP_NAME`
+| app.key                                 | `APP_KEY`
+| app.url                                 | `APP_URL`
+| app.trustedHosts                        | `APP_TRUSTED_HOSTS`
+| app.timezone                            | `APP_TZ`
+| app.locale                              | `APP_LOCALE`
+| cache.default                           | `CACHE_STORE` (the *redis* store is configured to use a different connection than the queue)
+| cms.activeTheme                         | `CMS_ACTIVE_THEME`
+| cms.edgeUpdates                         | `CMS_EDGE_UPDATES`
+| cms.backendUri                          | `CMS_BACKEND_URI`
+| cms.backendForceSecure                  | `CMS_BACKEND_FORCE_SECURE`
+| cms.backendForceRemember                | `CMS_BACKEND_FORCE_REMEMBER`
+| cms.backendSkin                         | `CMS_BACKEND_SKIN`
+| cms.disableCoreUpdates                  | `CMS_DISABLE_CORE_UPDATES`
+| cms.disablePlugins                      | `CMS_DISABLE_PLUGINS` (e.g.: `October.Demo,Acme.Demo`)
+| cms.assetCache                          | `CMS_ASSET_CACHE`
+| cms.databaseTemplates                   | `CMS_DATABASE_TEMPLATES`
+| cms.pluginsPath                         | `CMS_PLUGINS_PATH`
+| cms.themesPath                          | `CMS_THEMES_PATH`
+| cms.storage.*.disk                      | `CMS_*_DISK`
+| cms.storage.*.folder                    | `CMS_*_FOLDER`
+| cms.storage.*.path                      | `CMS_*_PATH`
+| cms.convertLineEndings                  | `CMS_CONVERT_LINE_ENDINGS`
+| cms.linkPolicy                          | `CMS_LINK_POLICY`
+| cms.defaultMask.file                    | `CMS_DEFAULT_MASK_FILE`
+| cms.defaultMask.folder                  | `CMS_DEFAULT_MASK_FOLDER`
+| cms.enableCsrfProtection                | `CMS_CSRF_PROTECTION`
+| database.default                        | `DB_CONNECTION`
+| database.sqlite.database                | `SQLITE_PATH`
+| database.(mysql|pgsql).host             | `DB_HOST`
+| database.(mysql|pgsql).port             | `DB_PORT`
+| database.(mysql|pgsql).database         | `DB_DATABASE`
+| database.(mysql|pgsql).username         | `DB_USERNAME`
+| database.(mysql|pgsql).password         | `DB_PASSOWRD`
+| database.redis.(default|cache).host     | `REDIS_HOST`
+| database.redis.(default|cache).port     | `REDIS_PORT`
+| database.redis.(default|cache).password | `REDIS_PASSWORD`
+| database.redis.default.database         | `REDIS_DB`
+| database.redis.cache.database           | `REDIS_CACHE_DB`
+| mail.driver                             | `MAIL_DRIVER`
+| mail.host                               | `MAIL_HOST`
+| mail.port                               | `MAIL_PORT`
+| mail.from.address                       | `MAIL_FROM_ADDRESS`
+| mail.from.name                          | `MAIL_FROM_NAME`
+| mail.encryption                         | `MAIL_ENCRYPTION`
+| mail.username                           | `MAIL_USERNAME`
+| mail.password                           | `MAIL_PASSWORD`
+| queue.default                           | `QUEUE_CONNECTION`
+| queue.connections.redis.queue           | `REDIS_QUEUE`
+| queue.failed.database                   | `DB_CONNECTION`
+| session.driver                          | `SESSION_DRIVER`
+| session.lifetime                        | `SESSION_LIFETIME`
+| session.expire_on_close                 | `SESSION_EXPIRE_ON_CLOSE`
+| session.encrypt                         | `SESSION_ENCRYPT`
+| session.cookie                          | `SESSION_COOKIE`
+| session.domain                          | `SESSION_COOKIE_DOMAIN`
+| session.http_only                       | `SESSION_COOKIE_HTTP_ONLY`
+| session.secure                          | `SESSION_COOKIE_SECURE`
+| session.same_site                       | `SESSION_COOKIE_SAME_SITE`
+
+
 ## Credits
 
-Some ideas were borrowed from [aspendigital/docker-octobercms](https://github.com/aspendigital/docker-octobercms). I recommend their images for October.
+Some ideas were borrowed from [aspendigital/docker-octobercms](https://github.com/aspendigital/docker-octobercms). Their images work greate for October.
