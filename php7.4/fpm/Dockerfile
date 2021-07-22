@@ -20,7 +20,7 @@ FROM base as builder
 USER www-data
 
 # Install Winter CMS
-RUN composer create-project wintercms/winter . --no-interaction --no-cache "dev-develop" && \
+RUN composer create-project wintercms/winter . --no-interaction --no-cache && \
 	composer clearcache && \
 	echo 'APP_ENV=docker' > .env && \
 	touch storage/database.sqlite && \
