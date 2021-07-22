@@ -21,6 +21,32 @@ By default, when the container starts, `artisan winter:up` is executed to comple
 
 Be aware that the default UID/GID for the *www-data* user in alpine is 82 (whereas it is 33 under debian). If you're mounting host directories, you may need to `chown 82:82` them first.
 
+## Commands
+
+### Winter
+
+E.g. to change the default admin password:
+
+```shell
+docker-compose exec wintercms winter passwd
+```
+
+### Artisan
+
+E.g. to install a plugin:
+
+```shell
+docker-compose exec wintercms artisan plugin:install AuthorName.PluginName
+```
+
+### Composer
+
+Composer is available inside the image. E.g. to install the *Builder* plugin:
+
+```shell
+docker-compose exec wintercms composer require winter/wn-builder-plugin
+```
+
 ## Configuration
 
 Most of the configuration can be set using environment variables, although for more advanced configurations you can mount your config directory to `/var/www/html/config/docker`. Each config option and it's defaults are documented in the [config/wintercms](config/wintercms) directory.
@@ -88,7 +114,6 @@ Most of the configuration can be set using environment variables, although for m
 | session.http_only                       | `SESSION_COOKIE_HTTP_ONLY`
 | session.secure                          | `SESSION_COOKIE_SECURE`
 | session.same_site                       | `SESSION_COOKIE_SAME_SITE`
-
 
 ## Credits
 
